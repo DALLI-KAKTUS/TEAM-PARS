@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/qt/qml/ParsHyperloop/">
+    <file alias="assets/hyperloop3d.glb">/home/erimkaya/ParsHyperloop/assets/hyperloop3d.glb</file>
+  </qresource>
+</RCC>
+

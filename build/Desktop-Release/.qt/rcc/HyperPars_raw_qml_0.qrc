@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/qt/qml/ParsHyperloop/">
+    <file alias="ui/Main.qml">/home/erimkaya/ParsHyperloop/ui/Main.qml</file>
+  </qresource>
+</RCC>
+

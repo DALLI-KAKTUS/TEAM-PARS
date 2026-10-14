@@ -1,0 +1,6 @@
+module ParsHyperloop
+typeinfo HyperPars.qmltypes
+prefer :/qt/qml/ParsHyperloop/
+Main 1.0 ui/Main.qml
+depends QtQuick
+

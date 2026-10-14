@@ -1,0 +1,15 @@
+{
+    "formatRevision": 1,
+    "modules": [
+        {
+            "moduleFiles": [
+                {
+                    "entries": [
+                    ],
+                    "filePath": "/home/erimkaya/ParsHyperloop/Main.qml"
+                }
+            ],
+            "moduleId": "ParsHyperloop(appParsHyperloop)"
+        }
+    ]
+}

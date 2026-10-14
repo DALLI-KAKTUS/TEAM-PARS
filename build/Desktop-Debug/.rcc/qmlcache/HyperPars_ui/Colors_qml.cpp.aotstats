@@ -1,0 +1,31 @@
+{
+    "formatRevision": 1,
+    "modules": [
+        {
+            "moduleFiles": [
+                {
+                    "entries": [
+                        {
+                            "codegenResult": 2,
+                            "column": 38,
+                            "durationMicroseconds": 0,
+                            "functionName": "panelBg",
+                            "line": 20,
+                            "message": "Cannot generate efficient code for internal conversion with incompatible or ambiguous types: call to method rgba, returning QVariant -> QColor stored as QVariant"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 42,
+                            "durationMicroseconds": 0,
+                            "functionName": "panelBorder",
+                            "line": 24,
+                            "message": "Cannot generate efficient code for internal conversion with incompatible or ambiguous types: call to method rgba, returning QVariant -> QColor stored as QVariant"
+                        }
+                    ],
+                    "filePath": "/home/erimkaya/ParsHyperloop/ui/Colors.qml"
+                }
+            ],
+            "moduleId": "ParsHyperloop(HyperPars)"
+        }
+    ]
+}

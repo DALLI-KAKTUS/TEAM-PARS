@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="/qt/qml/ParsHyperloop/">
+    <file alias="assets/hyperloop3d.glb">/home/erimkaya/ParsHyperloop/assets/hyperloop3d.glb</file>
+    <file alias="assets/teampars.png">/home/erimkaya/ParsHyperloop/assets/teampars.png</file>
+    <file alias="assets/ikculogo.png">/home/erimkaya/ParsHyperloop/assets/ikculogo.png</file>
+    <file alias="assets/fonts/Satoshi-Regular.otf">/home/erimkaya/ParsHyperloop/assets/fonts/Satoshi-Regular.otf</file>
+    <file alias="assets/fonts/Satoshi-Medium.otf">/home/erimkaya/ParsHyperloop/assets/fonts/Satoshi-Medium.otf</file>
+    <file alias="assets/fonts/Satoshi-Bold.otf">/home/erimkaya/ParsHyperloop/assets/fonts/Satoshi-Bold.otf</file>
+  </qresource>
+</RCC>
+
