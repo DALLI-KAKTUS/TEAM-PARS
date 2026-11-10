@@ -1,10 +1,16 @@
-// ui/views/BatteryView.qml
+// ui/views/battery/BatteryPage.qml
+// Batarya sekmesinin ana sayfası.
+// Batarya Yönetim Sistemi (BMS) verilerini; toplam şarj yüzdesini (SOC %),
+// paket sıcaklığını, maksimum hücre voltaj farkını ve anlık çekilen akımı gösterir.
 import QtQuick
 import ParsHyperloop
 
 Item {
     anchors.fill: parent
 
+    // -------------------------------------------------------------------------
+    // BMS ÖZET KARTI
+    // -------------------------------------------------------------------------
     Rectangle {
         width: 320
         height: 240
@@ -19,6 +25,7 @@ Item {
             anchors.margins: 20
             spacing: 12
 
+            // Kart başlığı
             Text {
                 text: "BATARYA YÖNETİM SİSTEMİ (BMS)"
                 color: Colors.textSecondary
@@ -28,6 +35,7 @@ Item {
                 font.letterSpacing: 1.2
             }
 
+            // Ana doluluk yüzdesi (SOC %)
             Text {
                 text: "%94.2"
                 color: Colors.textPrimary
@@ -38,6 +46,7 @@ Item {
 
             Rectangle { width: parent.width; height: 1; color: Colors.panelBorder }
 
+            // Alt batarya parametre satırları
             Row {
                 width: parent.width
                 Text { text: "Paket Sıcaklığı"; color: Colors.textSecondary; font.pixelSize: 12; width: 150 }

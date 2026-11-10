@@ -1,8 +1,14 @@
-// ui/views/CommView.qml
+// ui/views/communication/CommunicationPage.qml
+// Haberleşme sekmesinin ana sayfası.
+// Yer istasyonu ile kapsül arasındaki kablosuz telemetri linkinin gecikme süresini (ms),
+// sinyal gücünü (RSSI dBm), paket kayıp oranını ve çalışma frekansını gösterir.
 import QtQuick
 import ParsHyperloop
 
 Item {
+    // -------------------------------------------------------------------------
+    // HABERLEŞME LİNKİ ÖZET KARTI
+    // -------------------------------------------------------------------------
     Rectangle {
         width: 320
         height: 240
@@ -17,6 +23,7 @@ Item {
             anchors.margins: 20
             spacing: 12
 
+            // Kart başlığı
             Text {
                 text: "HABERLEŞME & KONTROL LİNKİ"
                 color: Colors.textSecondary
@@ -25,6 +32,7 @@ Item {
                 font.weight: Font.DemiBold
             }
 
+            // Anlık uçtan uca gecikme süresi (Latency)
             Text {
                 text: "2.4 ms"
                 color: Colors.textPrimary
@@ -35,6 +43,7 @@ Item {
 
             Rectangle { width: parent.width; height: 1; color: Colors.panelBorder }
 
+            // Alt haberleşme parametre satırları
             Row {
                 width: parent.width
                 Text { text: "Sinyal Gücü (RSSI)"; color: Colors.textSecondary; font.pixelSize: 12; width: 150 }
