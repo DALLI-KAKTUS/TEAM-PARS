@@ -1,8 +1,13 @@
-// ui/views/AnalyticsView.qml
+// ui/views/safety/SafetyPage.qml
+// Güvenlik ve Görev Analizi sekmesinin ana sayfası.
+// Sürüş sırasındaki kritik mesafe, tepe hız ve ortalama ivme sınırlarını takip eder.
 import QtQuick
 import ParsHyperloop
 
 Item {
+    // -------------------------------------------------------------------------
+    // GÜVENLİK & GÖREV ANALİZİ ÖZET KARTI
+    // -------------------------------------------------------------------------
     Rectangle {
         width: 320
         height: 240
@@ -17,6 +22,7 @@ Item {
             anchors.margins: 20
             spacing: 12
 
+            // Kart başlığı
             Text {
                 text: "GÖREV ANALİZİ & LOGLAR"
                 color: Colors.textSecondary
@@ -25,6 +31,7 @@ Item {
                 font.weight: Font.DemiBold
             }
 
+            // Kat edilen güvenli mesafe
             Text {
                 text: "4,250 m"
                 color: Colors.textPrimary
@@ -35,6 +42,7 @@ Item {
 
             Rectangle { width: parent.width; height: 1; color: Colors.panelBorder }
 
+            // Alt analiz parametre satırları
             Row {
                 width: parent.width
                 Text { text: "Kalan Mesafe"; color: Colors.textSecondary; font.pixelSize: 12; width: 150 }

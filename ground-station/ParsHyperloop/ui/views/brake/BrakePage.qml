@@ -1,8 +1,14 @@
-// ui/views/BrakeView.qml
+// ui/views/brake/BrakePage.qml
+// Fren sekmesinin ana sayfası.
+// Eddy Current (manyetik) ve Pnömatik (mekanik) fren sisteminin çalışma modunu,
+// kaliper hava boşluğunu, disk sıcaklığını ve tank basıncını gösterir.
 import QtQuick
 import ParsHyperloop
 
 Item {
+    // -------------------------------------------------------------------------
+    // FREN SİSTEMİ ÖZET KARTI
+    // -------------------------------------------------------------------------
     Rectangle {
         width: 320
         height: 240
@@ -17,6 +23,7 @@ Item {
             anchors.margins: 20
             spacing: 12
 
+            // Kart başlığı
             Text {
                 text: "FREN SİSTEMİ (EDDY CURRENT & PNEUMATIC)"
                 color: Colors.textSecondary
@@ -25,6 +32,7 @@ Item {
                 font.weight: Font.DemiBold
             }
 
+            // Aktif fren durumu
             Text {
                 text: "STANDBY"
                 color: Colors.statusNormal
@@ -35,6 +43,7 @@ Item {
 
             Rectangle { width: parent.width; height: 1; color: Colors.panelBorder }
 
+            // Alt fren parametre satırları
             Row {
                 width: parent.width
                 Text { text: "Hava Boşluğu"; color: Colors.textSecondary; font.pixelSize: 12; width: 150 }
