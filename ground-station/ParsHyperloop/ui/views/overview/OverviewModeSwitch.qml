@@ -1,4 +1,7 @@
-// ui/components/ModeSelector.qml
+// ui/views/overview/OverviewModeSwitch.qml
+// Genel Bakış sayfasının üst ortasında duran "Simülasyon | Yarışma" mod anahtarı.
+// Hangi mod seçiliyse o tarafın arka planı siyah, yazısı beyaz olur; pasif olan
+// taraf ise beyaz arka plan üzerine siyah yazı olarak kalır.
 import QtQuick
 import ParsHyperloop
 
@@ -10,13 +13,15 @@ Rectangle {
     color: "transparent"
     clip: true
 
-    // Dışarıdan okunabilir ve atanabilir mod durumu
+    // true: Simülasyon (3B Model), false: Yarışma (Kokpit HUD)
     property bool isSimulationMode: true
 
     Row {
         anchors.fill: parent
 
-        // Sol Buton: Simülasyon
+        // ---------------------------------------------------------------------
+        // 1. SOL YARI: SİMÜLASYON MODU BUTONU
+        // ---------------------------------------------------------------------
         Item {
             id: simBtn
             width: parent.width / 2
@@ -28,6 +33,8 @@ Rectangle {
                 radius: parent.height / 2
                 color: selectorRoot.isSimulationMode ? "#000000" : "#FFFFFF"
 
+                // Sol dış kenar yuvarlak kalırken orta birleşim yerinin düz inmesi için
+                // sağ yarıçap kadar alanı düz dikdörtgenle kapatıyoruz.
                 Rectangle {
                     anchors.right: parent.right
                     width: parent.radius
@@ -67,7 +74,9 @@ Rectangle {
             }
         }
 
-        // Sağ Buton: Yarışma
+        // ---------------------------------------------------------------------
+        // 2. SAĞ YARI: YARIŞMA MODU BUTONU
+        // ---------------------------------------------------------------------
         Item {
             id: compBtn
             width: parent.width / 2
@@ -79,6 +88,7 @@ Rectangle {
                 radius: parent.height / 2
                 color: !selectorRoot.isSimulationMode ? "#000000" : "#FFFFFF"
 
+                // Orta birleşim yerini dik tutmak için sol kenarı düz dikdörtgenle tamamlıyoruz
                 Rectangle {
                     anchors.left: parent.left
                     width: parent.radius
@@ -119,7 +129,7 @@ Rectangle {
         }
     }
 
-    // Ortadaki Düz Beyaz Ayraç Çizgisi
+    // İki mod butonunu tam ortadan bölen 2px beyaz dikey çizgi
     Rectangle {
         width: 2
         height: parent.height
@@ -128,7 +138,7 @@ Rectangle {
         z: 16
     }
 
-    // Dış Beyaz Çerçeve
+    // Kapsül anahtarın etrafını saran 2px beyaz dış çerçeve
     Rectangle {
         anchors.fill: parent
         radius: parent.radius
