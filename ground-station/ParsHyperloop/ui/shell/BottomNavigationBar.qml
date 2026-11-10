@@ -1,16 +1,22 @@
-// ui/components/BottomNavBar.qml
+// ui/shell/BottomNavigationBar.qml
+// Ekranın alt ortasında duran 5 sekmeli navigasyon barı.
+// Hangi sekmeye tıklanırsa arkasındaki siyah hap (`activeIndicator`) o yazının
+// genişliğini ve konumunu hesaplayarak oraya doğru kayar.
 import QtQuick
 import ParsHyperloop
 
 Rectangle {
     id: navRoot
 
+    // Seçili olan sekmenin indeksi (Main.qml'deki sayfa şeridi bu değeri dinler)
     property int currentIndex: 0
     signal tabSelected(int index)
 
-    // İlk açılışta yarım kalmayı önleyen animasyon kilidi
+    // Uygulama ilk açılırken yazı genişlikleri henüz hesaplanmadığı için siyah hapın
+    // sol köşeden kayarak gelmesini engelleyen kilit. İlk çizim bitince true olur.
     property bool readyToAnimate: false
 
+    // Menüde gösterilen 5 ana sayfa başlığı
     readonly property var items: [
         "Genel Bakış",
         "Güvenlik",
@@ -32,9 +38,10 @@ Rectangle {
         height: 44
         width: rowLayout.width
 
-        // =====================================================================
-        // KAYAN SİYAH HAP GÖSTERGESİ
-        // =====================================================================
+        // ---------------------------------------------------------------------
+        // 1. ARKADA KAYAN SİYAH HAP GÖSTERGESİ
+        // Seçili sekmenin x konumuna ve genişliğine kilitlenir.
+        // ---------------------------------------------------------------------
         Rectangle {
             id: activeIndicator
             height: 44
@@ -42,7 +49,6 @@ Rectangle {
             color: Colors.textPrimary
             z: 0
 
-            // Sadece ilk açılış tamamlandıktan sonra kayma animasyonu çalışır
             Behavior on x {
                 enabled: navRoot.readyToAnimate
                 NumberAnimation {
@@ -60,13 +66,17 @@ Rectangle {
             }
         }
 
+        // ---------------------------------------------------------------------
+        // 2. YAN YANA DİZİLEN SEKME BUTONLARI
+        // Her sekmenin genişliği içindeki yazının uzunluğuna + 32px iç boşluğa göre
+        // otomatik ayarlanır.
+        // ---------------------------------------------------------------------
         Row {
             id: rowLayout
             anchors.verticalCenter: parent.verticalCenter
             spacing: 6
             z: 1
 
-            // Butonların toplam genişliği değiştikçe hapı güncelle
             onWidthChanged: {
                 navRoot.updateIndicator()
             }
@@ -83,7 +93,6 @@ Rectangle {
                     width: tabText.implicitWidth + 32
                     height: 44
 
-                    // Butonun genişliği veya konumu netleştiğinde göstergeyi oturt
                     onWidthChanged: {
                         if (index === navRoot.currentIndex) {
                             navRoot.updateIndicator()
@@ -96,6 +105,7 @@ Rectangle {
                         }
                     }
 
+                    // Sekme adı: seçiliyse siyah hapın üstünde beyaz, değilse koyu gri görünür
                     Text {
                         id: tabText
                         anchors.centerIn: parent
@@ -128,7 +138,7 @@ Rectangle {
         }
     }
 
-    // Göstergeyi aktif butonun tam koordinat ve genişliğine kilitler
+    // Aktif sekme öğesini bulup siyah hapın x ve width değerlerini ona eşitler
     function updateIndicator() {
         if (rowRepeater && rowRepeater.count > navRoot.currentIndex) {
             var target = rowRepeater.itemAt(navRoot.currentIndex)
@@ -139,15 +149,13 @@ Rectangle {
         }
     }
 
-    // Sekme tıklandığında kaymayı tetikle
     onCurrentIndexChanged: {
         updateIndicator()
     }
 
-    // İlk açılış kurulumu
+    // Bileşen ekrana yerleştiğinde hapı ilk sekmeye oturtup animasyon kilidini açar
     Component.onCompleted: {
         updateIndicator()
-        // Render oturunca animasyon kilidini aç
         Qt.callLater(function() {
             updateIndicator()
             readyToAnimate = true
